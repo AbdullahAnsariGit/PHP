@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form Validation</title>
+</head>
+
+<body>
+	<form action="submit.php" method="post" name="form" onsubmit="return form_valid()">
+		<table border="1" cellspacing="10" cellpadding="10">
+  <tbody>
+    <tr>
+      <td>Username </td>
+      <td><input type="text" name="uname" id="user"/></td>
+    </tr>
+    <tr>
+      <td>Password </td>
+      <td><input type="password" name="pass" /></td>
+    </tr>
+    <tr>
+      <td>Confirm Password </td>
+      <td><input type="password" name="cpass" /></td>
+    </tr>
+    <tr>
+      <td>Email </td>
+      <td><input type="text" name="email" /></td>
+    </tr>
+    <tr>
+      <td>First Name </td>
+      <td><input type="text" name="fname" /></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><input type="text" name="lname" /></td>
+    </tr>
+    <tr>
+      <td><input type="reset" value="Reset" /></td>
+      <td><input type="submit" value="submit"/></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+	
+	<script>
+	
+		function form_valid(){
+			//var for fetch data
+			var user_name = document.forms["form"]["uname"].value;
+			var password = document.forms["form"]["pass"].value;
+			var confirm_password = document.forms["form"]["cpass"].value;
+			var email = document.forms["form"]["email"].value;
+			var first_name = document.forms["form"]["fname"].value;
+			var last_name = document.forms["form"]["lname"].value;
+			
+			
+			//var for validation
+			var reg_user = /^([A-Za-z0-9]{3,10})$/;
+			var reg_pass = /^([A-Za-z0-9]{8,})$/;
+			var reg_email = /^([A-Za-z0-9_\-\.])+\@([A-Za-z]{4,8})+\.([A-Za-z]{2,4})$/;
+			var reg_name = /^([A-Za-z]{3,10})$/;
+			
+			//username 
+			if(user_name == 0){
+				alert("Enter Username");
+				return false;
+			}
+			else if (reg_user.test(user_name)==false){
+				alert("Incorrect Username");
+				return false;
+			}
+			else if(reg_user.test(user_name)== true ){
+				document.getElementById("user").style.border = "2px solid green";
+			}
+			
+			//password 
+			if(password == 0){
+				alert("Enter Password");
+				return false;
+			}
+			else if (reg_pass.test(password)==false){
+				alert("Incorrect Password");
+				return false;
+			}
+			else if(reg_pass.test(password)== true ){
+				
+			}
+			
+			//Confirm Password 
+			if(confirm_password == 0){
+				alert("Enter Cofirm Password");
+				return false;
+			}
+			else if (reg_pass.test(confirm_password)==false){
+				alert("Incorrect Confirm Password");
+				return false;
+			}
+			else if(reg_pass.test(confirm_password)== true ){
+				
+			}
+			
+			//email 
+			if(email == 0){
+				alert("Enter Email");
+				return false;
+			}
+			else if (reg_email.test(email)==false){
+				alert("Incorrect Email");
+				return false;
+			}
+			else if(reg_email.test(email)== true ){
+				
+			}
+			
+			//First Name 
+			if(first_name == 0){
+				alert("Enter First Name");
+				return false;
+			}
+			else if (reg_name.test(first_name)==false){
+				alert("Incorrect First Name");
+				return false;
+			}
+			else if(reg_name.test(first_name)== true ){
+				
+			}
+			
+			//Last Name 
+			if(last_name == 0){
+				alert("Enter Last Name");
+				return false;
+			}
+			else if (reg_name.test(last_name)==false){
+				alert("Incorrect Last Name");
+				return false;
+			}
+			else if(reg_name.test(last_name)== true ){
+				
+			}
+		}
+	</script>
+</body>
+</html>
